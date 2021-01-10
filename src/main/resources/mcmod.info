@@ -1,14 +1,14 @@
 [
 {
-  "modid": "cactas_farming",
-  "name": "Cactas' Farming Mod",
+  "modid": "farming_time",
+  "name": "Just a Normal Farming Mod",
   "description": "A mod for farming.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Cactas"],
-  "credits": "a",
+  "authorList": ["Anonymous"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
