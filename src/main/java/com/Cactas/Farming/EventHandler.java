@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -25,18 +26,21 @@ public class EventHandler {
     @SubscribeEvent
     public void onMouseInput(InputEvent.MouseInputEvent event){
         if(!Mouse.getEventButtonState()){return;}
-        //stop the shit
+        mySlave.currentMouseExec.cancel(true);
+        mySlave.currentKeyExec.cancel(false);
     }
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event){
         if(startFarm.isPressed()){
-            mySlave.testMove();
+            mySlave.moveMouse(-360, 0, 1000);
+            mySlave.pressKey(0, 10000);
         }
     }
+
     public KeyBinding[] getKeybinds(){
         GameSettings gs = Minecraft.getMinecraft().gameSettings;
-        return new KeyBinding[]{gs.keyBindForward, gs.keyBindLeft, gs.keyBindBack, gs.keyBindRight, gs.keyBindJump, gs.keyBindSneak};
+        return new KeyBinding[]{gs.keyBindForward, gs.keyBindLeft, gs.keyBindBack, gs.keyBindRight, gs.keyBindJump, gs.keyBindSneak, gs.keyBindAttack};
     }
     public static void registerKeyBindings(){
         startFarm = new KeyBinding("key.categories.movement", Keyboard.KEY_V, "Farming Time");
