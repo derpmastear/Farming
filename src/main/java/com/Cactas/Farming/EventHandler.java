@@ -26,8 +26,12 @@ public class EventHandler {
     @SubscribeEvent
     public void onMouseInput(InputEvent.MouseInputEvent event){
         if(!Mouse.getEventButtonState()){return;}
-        mySlave.currentMouseExec.cancel(true);
-        mySlave.currentKeyExec.cancel(false);
+        if(mySlave.currentMouseExec != null){
+            mySlave.currentMouseExec.cancel(true);
+        }
+        if(mySlave.currentKeyExec != null){
+            mySlave.currentKeyExec.cancel(false);
+        }
     }
 
     @SubscribeEvent

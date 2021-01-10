@@ -3,11 +3,8 @@ package com.Cactas.Farming;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
-import org.lwjgl.input.Mouse;
 
 import java.awt.*;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -19,7 +16,8 @@ public class CustomRobot {
     public final ScheduledExecutorService cancelExec;
     public ScheduledFuture<?> currentMouseExec;
     public ScheduledFuture<?> currentKeyExec;
-
+    public int currentFarm = 0;
+    public String[] farmType = new String[]{"Cane", "Wart"};
     /*
      * Order: 0:Forward, 1:Left, 2:Back, 3:Right, 4:Jump, 5:Sneak, 6:Click
      */
@@ -55,6 +53,9 @@ public class CustomRobot {
         cancelExec.schedule(cr, (time + 50/time), TimeUnit.MILLISECONDS);
     }
 
+    /*
+        Private Runnable Classes
+     */
     private class KeyPressRunnable implements Runnable{
         private boolean state;
         private KeyBinding myKeyBinds;
