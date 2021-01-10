@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cactas_farming",
+  "name": "Cactas' Farming Mod",
+  "description": "A mod for farming.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Cactas"],
+  "credits": "a",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
