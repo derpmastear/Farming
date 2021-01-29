@@ -25,7 +25,7 @@ public class Farming
         MinecraftForge.EVENT_BUS.register(myEventHandler);
         try{
             ChangeTypeCommand ctc = new ChangeTypeCommand();
-            ctc.mySlave = myEventHandler.mySlave;
+            ctc.myEventHandler = myEventHandler;
             ClientCommandHandler.instance.registerCommand(new ChangeTypeCommand());
         }
         catch(Exception e){
